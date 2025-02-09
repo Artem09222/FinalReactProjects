@@ -15972,9 +15972,9 @@ const createMotionComponent = /* @__PURE__ */ createMotionComponentFactory({
   ...layout
 }, createDomVisualElement);
 const motion = /* @__PURE__ */ createDOMMotionComponentProxy(createMotionComponent);
-const container = "_container_1r71l_105";
-const leftStatisticsSection$1 = "_leftStatisticsSection_1r71l_115";
-const app = "_app_1r71l_185";
+const container = "_container_1ukfh_105";
+const leftStatisticsSection$1 = "_leftStatisticsSection_1ukfh_115";
+const app = "_app_1ukfh_185";
 const styles$d = {
   container,
   leftStatisticsSection: leftStatisticsSection$1,
@@ -17292,17 +17292,17 @@ const styles$b = {
 const DeleteListBtn = ({ deleteList }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: styles$b.delete, onClick: deleteList, children: "Delete" });
 };
-const rightStatisticsSection = "_rightStatisticsSection_bqfd5_1";
-const contentWrapper = "_contentWrapper_bqfd5_59";
-const header$1 = "_header_bqfd5_81";
-const headerItem$1 = "_headerItem_bqfd5_119";
-const record = "_record_bqfd5_145";
-const date = "_date_bqfd5_173";
-const type = "_type_bqfd5_173";
-const category = "_category_bqfd5_173";
-const comment = "_comment_bqfd5_173";
-const sum = "_sum_bqfd5_173";
-const sumUnique = "_sumUnique_bqfd5_173";
+const rightStatisticsSection = "_rightStatisticsSection_10cuo_1";
+const contentWrapper = "_contentWrapper_10cuo_55";
+const header$1 = "_header_10cuo_77";
+const headerItem$1 = "_headerItem_10cuo_115";
+const record = "_record_10cuo_141";
+const date = "_date_10cuo_169";
+const type = "_type_10cuo_169";
+const category = "_category_10cuo_169";
+const comment = "_comment_10cuo_169";
+const sum = "_sum_10cuo_169";
+const sumUnique = "_sumUnique_10cuo_169";
 const styles$a = {
   rightStatisticsSection,
   contentWrapper,
@@ -27329,7 +27329,7 @@ const ModalPlus = ({ onClose, onAddTransaction }) => {
     }
   ) });
 };
-const plusList = "_plusList_167cc_1";
+const plusList = "_plusList_6dtyr_1";
 const styles$8 = {
   plusList
 };
@@ -27400,9 +27400,9 @@ const RightStatisticsSection = () => {
     /* @__PURE__ */ jsxRuntimeExports.jsx(PlusBtn, { onAddTransaction: handleAddTransaction })
   ] }) });
 };
-const leftStatisticsSection = "_leftStatisticsSection_1su7q_1";
-const leftStatisticsSectionWrapper = "_leftStatisticsSectionWrapper_1su7q_17";
-const leftStatisticsSectionInfo = "_leftStatisticsSectionInfo_1su7q_31";
+const leftStatisticsSection = "_leftStatisticsSection_e8v2j_1";
+const leftStatisticsSectionWrapper = "_leftStatisticsSectionWrapper_e8v2j_17";
+const leftStatisticsSectionInfo = "_leftStatisticsSectionInfo_e8v2j_31";
 const styles$7 = {
   leftStatisticsSection,
   leftStatisticsSectionWrapper,
@@ -27422,11 +27422,11 @@ const BalanceInfo = () => {
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: styles$6.balanceInfoTitle2, children: "₴ 24 000.00" })
   ] });
 };
-const currencyRates = "_currencyRates_7f6fb_1";
-const header = "_header_7f6fb_21";
-const headerItem = "_headerItem_7f6fb_57";
-const rateRow = "_rateRow_7f6fb_105";
-const cell = "_cell_7f6fb_151";
+const currencyRates = "_currencyRates_1c0jf_1";
+const header = "_header_1c0jf_21";
+const headerItem = "_headerItem_1c0jf_57";
+const rateRow = "_rateRow_1c0jf_105";
+const cell = "_cell_1c0jf_151";
 const styles$5 = {
   currencyRates,
   header,
@@ -38919,8 +38919,8 @@ class TimeSeriesScale extends TimeScale {
 }
 __publicField(TimeSeriesScale, "id", "timeseries");
 __publicField(TimeSeriesScale, "defaults", TimeScale.defaults);
-const currencyChartContainer = "_currencyChartContainer_1mqol_1";
-const canvas = "_canvas_1mqol_29";
+const currencyChartContainer = "_currencyChartContainer_1p17w_1";
+const canvas = "_canvas_1p17w_29";
 const styles$4 = {
   currencyChartContainer,
   canvas
@@ -39038,21 +39038,21 @@ const LeftStatisticsSection = ({ onSectionChange }) => {
     /* @__PURE__ */ jsxRuntimeExports.jsx(CurrencySale, {})
   ] });
 };
-const statisticsRigntSection = "_statisticsRigntSection_e2yno_1";
-const title = "_title_e2yno_35";
-const mainContent = "_mainContent_e2yno_47";
-const chartContainer = "_chartContainer_e2yno_61";
-const rightBlock = "_rightBlock_e2yno_77";
-const filters = "_filters_e2yno_91";
-const dropdown = "_dropdown_e2yno_103";
-const leftSection = "_leftSection_e2yno_123";
-const categoryList = "_categoryList_e2yno_137";
-const categoryItem = "_categoryItem_e2yno_149";
-const categoryColor = "_categoryColor_e2yno_167";
-const rightSection = "_rightSection_e2yno_179";
-const summary = "_summary_e2yno_191";
-const expenses = "_expenses_e2yno_211";
-const income = "_income_e2yno_219";
+const statisticsRigntSection = "_statisticsRigntSection_1k2dg_1";
+const title = "_title_1k2dg_35";
+const mainContent = "_mainContent_1k2dg_47";
+const chartContainer = "_chartContainer_1k2dg_61";
+const rightBlock = "_rightBlock_1k2dg_77";
+const filters = "_filters_1k2dg_91";
+const dropdown = "_dropdown_1k2dg_103";
+const leftSection = "_leftSection_1k2dg_123";
+const categoryList = "_categoryList_1k2dg_137";
+const categoryItem = "_categoryItem_1k2dg_149";
+const categoryColor = "_categoryColor_1k2dg_167";
+const rightSection = "_rightSection_1k2dg_179";
+const summary = "_summary_1k2dg_191";
+const expenses = "_expenses_1k2dg_211";
+const income = "_income_1k2dg_219";
 const styles$1 = {
   statisticsRigntSection,
   title,
