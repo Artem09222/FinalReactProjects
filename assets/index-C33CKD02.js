@@ -15972,9 +15972,9 @@ const createMotionComponent = /* @__PURE__ */ createMotionComponentFactory({
   ...layout
 }, createDomVisualElement);
 const motion = /* @__PURE__ */ createDOMMotionComponentProxy(createMotionComponent);
-const container = "_container_1ukfh_105";
-const leftStatisticsSection$1 = "_leftStatisticsSection_1ukfh_115";
-const app = "_app_1ukfh_185";
+const container = "_container_xcwem_105";
+const leftStatisticsSection$1 = "_leftStatisticsSection_xcwem_115";
+const app = "_app_xcwem_183";
 const styles$d = {
   container,
   leftStatisticsSection: leftStatisticsSection$1,
@@ -39038,21 +39038,21 @@ const LeftStatisticsSection = ({ onSectionChange }) => {
     /* @__PURE__ */ jsxRuntimeExports.jsx(CurrencySale, {})
   ] });
 };
-const statisticsRigntSection = "_statisticsRigntSection_1k2dg_1";
-const title = "_title_1k2dg_35";
-const mainContent = "_mainContent_1k2dg_47";
-const chartContainer = "_chartContainer_1k2dg_61";
-const rightBlock = "_rightBlock_1k2dg_77";
-const filters = "_filters_1k2dg_91";
-const dropdown = "_dropdown_1k2dg_103";
-const leftSection = "_leftSection_1k2dg_123";
-const categoryList = "_categoryList_1k2dg_137";
-const categoryItem = "_categoryItem_1k2dg_149";
-const categoryColor = "_categoryColor_1k2dg_167";
-const rightSection = "_rightSection_1k2dg_179";
-const summary = "_summary_1k2dg_191";
-const expenses = "_expenses_1k2dg_211";
-const income = "_income_1k2dg_219";
+const statisticsRigntSection = "_statisticsRigntSection_6tmi7_1";
+const title = "_title_6tmi7_35";
+const mainContent = "_mainContent_6tmi7_47";
+const chartContainer = "_chartContainer_6tmi7_61";
+const rightBlock = "_rightBlock_6tmi7_77";
+const filters = "_filters_6tmi7_91";
+const dropdown = "_dropdown_6tmi7_103";
+const leftSection = "_leftSection_6tmi7_123";
+const categoryList = "_categoryList_6tmi7_137";
+const categoryItem = "_categoryItem_6tmi7_149";
+const categoryColor = "_categoryColor_6tmi7_167";
+const rightSection = "_rightSection_6tmi7_179";
+const summary = "_summary_6tmi7_191";
+const expenses = "_expenses_6tmi7_211";
+const income = "_income_6tmi7_219";
 const styles$1 = {
   statisticsRigntSection,
   title,

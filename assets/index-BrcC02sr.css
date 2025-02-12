@@ -10,25 +10,25 @@ html, body {
   overflow-y: auto;
 }
 
-._rightSection_1ukfh_25 {
+._rightSection_xcwem_25 {
   box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25), inset 0px -3px 2px 0px rgba(0, 0, 0, 0.1);
   background: linear-gradient(-83.72deg, rgb(46, 23, 70) 3.204%, rgb(46, 34, 95) 99.979%);
   width: 1000px;
   padding: 30px;
 }
 
-._rightSection_1ukfh_25._active_1ukfh_39 {
+._rightSection_xcwem_25._active_xcwem_39 {
   transform: translateX(0); 
 }
 
-._contentWrapper_1ukfh_47 {
+._contentWrapper_xcwem_47 {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100%;
 }
 
-._header_1ukfh_61 {
+._header_xcwem_61 {
   display: grid;
   grid-template-columns: 1fr 1fr 2fr 3fr 1fr auto;
   background-color: #1f1b2e;
@@ -41,7 +41,7 @@ html, body {
   text-align: center;
 }
 
-._statisticsSection_1ukfh_87 {
+._statisticsSection_xcwem_87 {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -50,36 +50,35 @@ html, body {
   color: white;
 }
 
-._container_1ukfh_105 {
+._container_xcwem_105 {
   display: flex;
-  height: 100vh; /* Вирівнює секції по висоті екрана */
+  height: 100vh; 
 }
 
-._leftStatisticsSection_1ukfh_115 {
-  flex: 1; 
+._leftStatisticsSection_xcwem_115 {
   background: linear-gradient(180deg, rgba(109, 84, 235, 0.6) 0%, rgba(101, 35, 146, 0.6) 100%);
   height: 100vh;
 }
 
-._rightSection_1ukfh_25 {
+._rightSection_xcwem_25 {
   flex: 2; /* Права секція займає 2 частини доступного простору */
   box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25), inset 0px -3px 2px 0px rgba(0, 0, 0, 0.1);
   background: linear-gradient(-83.72deg, rgb(46, 23, 70) 3.204%, rgb(46, 34, 95) 99.979%);
   padding: 30px;
-  overflow-y: auto; /* Додає скролінг, якщо вміст перевищує висоту */
+  overflow-y: auto; 
 }
 
-._rightSection_1ukfh_25 {
+._rightSection_xcwem_25 {
   transition: transform 0.3s ease-in-out;
-  animation: _fadeIn_1ukfh_1 0.8s ease-in-out;
+  animation: _fadeIn_xcwem_1 0.8s ease-in-out;
   transform: translateX(100%); /* Початкове положення */
 }
 
-._rightSection_1ukfh_25._active_1ukfh_39 {
+._rightSection_xcwem_25._active_xcwem_39 {
   transform: translateX(0); /* Перехід на стандартне положення */
 }
 
-@keyframes _fadeIn_1ukfh_1 {
+@keyframes _fadeIn_xcwem_1 {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -90,8 +89,8 @@ html, body {
   }
 }
 
-._app_1ukfh_185 {
-  animation: _fadeIn_1ukfh_1 1s ease-in-out;
+._app_xcwem_183 {
+  animation: _fadeIn_xcwem_1 1s ease-in-out;
     width: 100vw;
     height: 100vh;
     /* display: flex;
@@ -1622,15 +1621,15 @@ h2.react-datepicker__current-month {
     height: 24px;
     object-fit: contain;
     margin-left: 8px;
-}._statisticsRigntSection_1k2dg_1 {
+}._statisticsRigntSection_6tmi7_1 {
     /* display: flex;
     flex-direction: column; */
     gap: 20px;
+    height: 655px;
     /* width: 100%;
-    max-width: 1000px; */
-    height: 690px;
-    /* margin: 0 auto; */
+    * margin: 0 auto; */
     padding: 20px;
+    width: 1000px;
     box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25), inset 0px -3px 2px 0px rgba(0, 0, 0, 0.1);
     background: linear-gradient(-83.72deg, rgb(46, 23, 70) 3.204%, rgb(46, 34, 95) 99.979%);
     color: white;
@@ -1639,20 +1638,20 @@ h2.react-datepicker__current-month {
     right: 0px; */
 }
 
-._title_1k2dg_35 {
+._title_6tmi7_35 {
     margin-left: 100px;
     font-size: 23px;
     font-weight: bold;
 }
 
-._mainContent_1k2dg_47 {
+._mainContent_6tmi7_47 {
     display: flex;
     justify-content: space-between;
     gap: 20px;
     align-items: flex-start;
 }
 
-._chartContainer_1k2dg_61 {
+._chartContainer_6tmi7_61 {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -1660,20 +1659,20 @@ h2.react-datepicker__current-month {
     margin: 20px 0;
 }
 
-._rightBlock_1k2dg_77 {
+._rightBlock_6tmi7_77 {
     flex: 2;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-._filters_1k2dg_91 {
+._filters_6tmi7_91 {
     display: flex;
     justify-content: flex-start;
     gap: 10px;
 }
 
-._dropdown_1k2dg_103 {
+._dropdown_6tmi7_103 {
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -1683,20 +1682,20 @@ h2.react-datepicker__current-month {
     cursor: pointer;
 }
 
-._leftSection_1k2dg_123 {
+._leftSection_6tmi7_123 {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-._categoryList_1k2dg_137 {
+._categoryList_6tmi7_137 {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-._categoryItem_1k2dg_149 {
+._categoryItem_6tmi7_149 {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1705,19 +1704,19 @@ h2.react-datepicker__current-month {
     border-radius: 5px;
 }
 
-._categoryColor_1k2dg_167 {
+._categoryColor_6tmi7_167 {
     width: 20px;
     height: 20px;
     border-radius: 50%;
 }
 
-._rightSection_1k2dg_179 {
+._rightSection_6tmi7_179 {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-._summary_1k2dg_191 {
+._summary_6tmi7_191 {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -1727,11 +1726,11 @@ h2.react-datepicker__current-month {
     font-weight: bold;
 }
 
-._expenses_1k2dg_211 {
+._expenses_6tmi7_211 {
     color: #FF6384;
 }
 
-._income_1k2dg_219 {
+._income_6tmi7_219 {
     color: #36A2EB;
 }._circularChart_42ncr_1 {
     position: relative;
