@@ -7235,7 +7235,7 @@ function requireWithSelector() {
   }
   return withSelector.exports;
 }
-requireWithSelector();
+var withSelectorExports = requireWithSelector();
 var reactDomExports = requireReactDom();
 const ReactDOM = /* @__PURE__ */ getDefaultExportFromCjs(reactDomExports);
 function defaultNoopBatch(callback2) {
@@ -7261,6 +7261,51 @@ function getContext() {
   return realContext;
 }
 const ReactReduxContext = /* @__PURE__ */ getContext();
+function createReduxContextHook(context = ReactReduxContext) {
+  return function useReduxContext2() {
+    const contextValue = reactExports.useContext(context);
+    return contextValue;
+  };
+}
+const useReduxContext = /* @__PURE__ */ createReduxContextHook();
+const notInitialized = () => {
+  throw new Error("uSES not initialized!");
+};
+let useSyncExternalStoreWithSelector = notInitialized;
+const initializeUseSelector = (fn) => {
+  useSyncExternalStoreWithSelector = fn;
+};
+const refEquality = (a, b) => a === b;
+function createSelectorHook(context = ReactReduxContext) {
+  const useReduxContext$1 = context === ReactReduxContext ? useReduxContext : createReduxContextHook(context);
+  return function useSelector2(selector, equalityFnOrOptions = {}) {
+    const {
+      equalityFn = refEquality,
+      stabilityCheck = void 0,
+      noopCheck = void 0
+    } = typeof equalityFnOrOptions === "function" ? {
+      equalityFn: equalityFnOrOptions
+    } : equalityFnOrOptions;
+    const {
+      store: store2,
+      subscription,
+      getServerState,
+      stabilityCheck: globalStabilityCheck,
+      noopCheck: globalNoopCheck
+    } = useReduxContext$1();
+    reactExports.useRef(true);
+    const wrappedSelector = reactExports.useCallback({
+      [selector.name](state) {
+        const selected = selector(state);
+        return selected;
+      }
+    }[selector.name], [selector, globalStabilityCheck, stabilityCheck]);
+    const selectedState = useSyncExternalStoreWithSelector(subscription.addNestedSub, store2.getState, getServerState || store2.getState, wrappedSelector, equalityFn);
+    reactExports.useDebugValue(selectedState);
+    return selectedState;
+  };
+}
+const useSelector = /* @__PURE__ */ createSelectorHook();
 function _extends$1() {
   return _extends$1 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
@@ -7757,6 +7802,34 @@ function Provider({
     value: contextValue
   }, children);
 }
+function createStoreHook(context = ReactReduxContext) {
+  const useReduxContext$1 = (
+    // @ts-ignore
+    context === ReactReduxContext ? useReduxContext : (
+      // @ts-ignore
+      createReduxContextHook(context)
+    )
+  );
+  return function useStore2() {
+    const {
+      store: store2
+    } = useReduxContext$1();
+    return store2;
+  };
+}
+const useStore = /* @__PURE__ */ createStoreHook();
+function createDispatchHook(context = ReactReduxContext) {
+  const useStore$1 = (
+    // @ts-ignore
+    context === ReactReduxContext ? useStore : createStoreHook(context)
+  );
+  return function useDispatch2() {
+    const store2 = useStore$1();
+    return store2.dispatch;
+  };
+}
+const useDispatch = /* @__PURE__ */ createDispatchHook();
+initializeUseSelector(withSelectorExports.useSyncExternalStoreWithSelector);
 setBatch(reactDomExports.unstable_batchedUpdates);
 /**
  * @remix-run/router v1.22.0
@@ -15972,9 +16045,9 @@ const createMotionComponent = /* @__PURE__ */ createMotionComponentFactory({
   ...layout
 }, createDomVisualElement);
 const motion = /* @__PURE__ */ createDOMMotionComponentProxy(createMotionComponent);
-const container = "_container_xcwem_105";
-const leftStatisticsSection$1 = "_leftStatisticsSection_xcwem_115";
-const app = "_app_xcwem_183";
+const container = "_container_elwqa_105";
+const leftStatisticsSection$1 = "_leftStatisticsSection_elwqa_115";
+const app = "_app_elwqa_183";
 const styles$d = {
   container,
   leftStatisticsSection: leftStatisticsSection$1,
@@ -17316,6 +17389,16 @@ const styles$a = {
   sum,
   sumUnique
 };
+const addTranc = "ADD_TRANC";
+const deleteTranc = "DELETE_TRANC";
+const addT = (tranc) => ({
+  type: addTranc,
+  payload: tranc
+});
+const deleteT = (id2) => ({
+  type: deleteTranc,
+  payload: id2
+});
 const modalOverlay = "_modalOverlay_1t6fo_1";
 const modalContent = "_modalContent_1t6fo_27";
 const closeButton = "_closeButton_1t6fo_49";
@@ -27149,6 +27232,7 @@ var DatePicker = (
 var PRESELECT_CHANGE_VIA_INPUT = "input";
 var PRESELECT_CHANGE_VIA_NAVIGATE = "navigate";
 const ModalPlus = ({ onClose, onAddTransaction }) => {
+  const dispatch = useDispatch();
   const [isIncome, setIsIncome] = reactExports.useState(true);
   const [formData, setFormData] = reactExports.useState({
     category: "",
@@ -27201,9 +27285,16 @@ const ModalPlus = ({ onClose, onAddTransaction }) => {
       return;
     }
     const newTransaction = {
-      ...formData,
-      type: isIncome ? "Income" : "Expense"
+      id: Date.now(),
+      date: formData.date.toLocaleDateString(),
+      type: isIncome ? "Income" : "Expense",
+      category: formData.category,
+      comment: formData.comment,
+      sum: parseFloat(formData.amount).toFixed(2),
+      sumClass: isIncome ? "sumUnique" : "sum"
     };
+    console.log("Adding tranc:", newTransaction);
+    dispatch(addT(newTransaction));
     onAddTransaction(newTransaction);
     setFormData({ category: "", amount: "0.00", date: /* @__PURE__ */ new Date(), comment: "" });
     onClose();
@@ -27349,28 +27440,26 @@ const PlusBtn = ({ onAddTransaction }) => {
   ] });
 };
 const RightStatisticsSection = () => {
-  const [records, setRecords] = reactExports.useState([
-    { date: "04.01.19", type: "-", category: "Other", comment: "Gift for your wife", sum: "300.00", sumClass: "sum" },
-    { date: "05.01.19", type: "+", category: "Income", comment: "January bonus", sum: "8 000.00", sumClass: "sumUnique" },
-    { date: "07.01.19", type: "-", category: "Car", comment: "Oil", sum: "1 000.00", sumClass: "sum" },
-    { date: "07.01.19", type: "-", category: "Products", comment: "Vegetables for the week", sum: "280.00", sumClass: "sum" },
-    { date: "07.01.19", type: "+", category: "Income", comment: "Gift", sum: "1 000.00", sumClass: "sumUnique" }
-  ]);
-  reactExports.useEffect(() => {
-    const savedRecords = localStorage.getItem("records");
-    if (savedRecords) {
-      setRecords(JSON.parse(savedRecords));
-    }
-  }, []);
-  reactExports.useEffect(() => {
-    localStorage.setItem("records", JSON.stringify(records));
-  }, [records]);
-  const deleteList = (index2) => {
-    const updatedRecords = records.filter((_2, i) => i !== index2);
-    setRecords(updatedRecords);
+  const transactions = useSelector((state) => state.transactions || []);
+  const dispatch = useDispatch();
+  const handleDelete = (id2) => {
+    dispatch(deleteT(id2));
   };
+  reactExports.useEffect(() => {
+    const savedRecords = localStorage.getItem("transactions");
+    if (savedRecords) {
+      const parcedRecords = JSON.parse(savedRecords);
+      if (parcedRecords.length > 0) {
+        parcedRecords.forEach((tr) => dispatch(addT(tr)));
+      }
+    }
+  }, [dispatch]);
+  reactExports.useEffect(() => {
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  }, [transactions]);
   const handleAddTransaction = (transaction) => {
     const newTransaction = {
+      id: Date.now(),
       date: new Date(transaction.date).toLocaleDateString(),
       type: transaction.type,
       category: transaction.category,
@@ -27378,7 +27467,7 @@ const RightStatisticsSection = () => {
       sum: transaction.amount,
       sumClass: transaction.type === "+" ? "sumUnique" : "sum"
     };
-    setRecords((prevRecords) => [...prevRecords, newTransaction]);
+    dispatch(addT(newTransaction));
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: styles$a.rightStatisticsSection, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles$a.contentWrapper, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles$a.header, children: [
@@ -27389,14 +27478,14 @@ const RightStatisticsSection = () => {
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: styles$a.headerItem, children: "Sum" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: styles$a.headerItem })
     ] }),
-    records.map((record2, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles$a.record, children: [
+    transactions.map((record2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles$a.record, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: styles$a.date, children: record2.date }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: styles$a.type, children: record2.type }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: styles$a.category, children: record2.category }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: styles$a.comment, children: record2.comment }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: styles$a[record2.sumClass], children: record2.sum }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(DeleteListBtn, { deleteList: () => deleteList(index2) })
-    ] }, index2)),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(DeleteListBtn, { deleteList: () => handleDelete(record2.id) })
+    ] }, record2.id)),
     /* @__PURE__ */ jsxRuntimeExports.jsx(PlusBtn, { onAddTransaction: handleAddTransaction })
   ] }) });
 };
